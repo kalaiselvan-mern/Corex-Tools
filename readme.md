@@ -1,3 +1,4 @@
+<img width="1919" height="912" alt="image" src="https://github.com/user-attachments/assets/59ef1aa2-765c-4909-a554-8868644b926c" />
 # CoreX Tools 🚀
 
 CoreX Tools is a high-performance, multi-utility web application crafted by Kalai Creative Studio. It provides seamless tools for everyday digital tasks, built with a modern frontend and a scalable, dual-backend microservice architecture.
