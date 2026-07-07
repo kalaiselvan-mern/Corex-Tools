@@ -1,0 +1,40 @@
+from fastapi import FastAPI, File, UploadFile
+from fastapi.responses import Response
+from fastapi.middleware.cors import CORSMiddleware 
+import qrcode
+import io
+
+
+
+app = FastAPI(title="All In One Tools",description="Kalai Creative studio provides a variety of tools to help you create stunning visuals and designs." \
+" Whether you're a beginner or an experienced artist, we have the tools you need to bring your vision to life.",version="1.0")
+
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
+# 1. QR Code Generator API
+@app.get("/api/qr")
+def generate_qr(url: str):
+    qr = qrcode.make(url)
+    buf = io.BytesIO()
+    qr.save(buf, format="PNG")
+    return Response(content=buf.getvalue(), media_type="image/png")
+
+# 2. Background Remover API
+@app.post("/api/bg-remove")
+async def remove_background(file: UploadFile = File(...)):
+    input_image = await file.read()
+    output_image = remove(input_image)
+    return Response(content=output_image, media_type="image/png")
+
+# 3. YT Downloader (Basic Structure)
+@app.get("/api/yt-download")
+def download_yt(link: str):
+    return {"message": "Youtube download logic goes here", "url": link}
