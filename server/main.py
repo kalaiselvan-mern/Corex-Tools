@@ -28,15 +28,9 @@ def generate_qr(url: str):
     qr.save(buf, format="PNG")
     return Response(content=buf.getvalue(), media_type="image/png")
 
-# 2. Background Remover API
-@app.post("/api/bg-remove")
-async def remove_background(file: UploadFile = File(...)):
-    input_image = await file.read()   
-    output_image = remove(input_image)   
-    return Response(content=output_image, media_type="image/png")
 
 
-# 3. YT Downloader (Basic Structure)
+# 2. YT Downloader (Basic Structure)
 @app.get("/api/video-dl")
 def download_yt(url: str):
     try:

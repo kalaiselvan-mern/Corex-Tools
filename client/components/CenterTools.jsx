@@ -8,6 +8,7 @@ export default function CenterTools() {
   const [loading, setLoading] = useState(false);
 
   const API_URL = import.meta.env.VITE_API_BASE_URL || "http://127.0.0.1:8000";
+  const BG_API_URL = import.meta.env.VITE_BG_API_URL 
 
   const handleQR = async () => {
     if (!inputUrl) return alert("Please Enter A Link");
@@ -26,7 +27,7 @@ export default function CenterTools() {
     const formData = new FormData();
     formData.append("file", imageFile);
     try {
-      const res = await fetch(`${API_URL}/api/bg-remove`, { method: "POST", body: formData });
+      const res = await fetch(`${BG_API_URL}/api/bg-remove`, { method: "POST", body: formData });
       const blob = await res.blob();
       setResult(URL.createObjectURL(blob));
     } catch (err) { alert("API Error!"); }
