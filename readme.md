@@ -1,15 +1,19 @@
 <img width="1919" height="912" alt="image" src="https://github.com/user-attachments/assets/59ef1aa2-765c-4909-a554-8868644b926c" />
 
 ---
+<h1 align="center"> CoreX - Tools </h1>
 
-## 🌐 Live Preview
-[![Live Preview](https://img.shields.io/badge/Live_Preview-Click_Here-06B6D4?style=for-the-badge&logo=vercel)](https://corex-tools.vercel.app)
-
----
 <p align="center">
   <b>Built with ❤️ by Kalai Creative Studio</b><br>
   <i>Scalable Microservice Architecture | React + FastAPI</i>
 </p>
+
+<div align="center">
+
+[![Live Preview](https://img.shields.io/badge/Live_Preview-Click_Here-06B6D4?style=for-the-badge&logo=vercel)](https://corex-tools.vercel.app)
+
+  
+</div>
 
 ## CoreX Tools 🚀
 
