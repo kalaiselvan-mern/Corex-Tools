@@ -3,7 +3,7 @@
 ---
 
 ## 🌐 Live Preview
-👉 [**Click here to use CoreX Tools**](https://corex-tools.vercel.app)
+[![Live Preview](https://img.shields.io/badge/Live_Preview-Click_Here-06B6D4?style=for-the-badge&logo=vercel)](https://corex-tools.vercel.app)
 
 ---
 <p align="center">
