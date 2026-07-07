@@ -36,3 +36,26 @@ VITE_API_BASE_URL=[https://corex-tools.onrender.com](https://corex-tools.onrende
 
 # Dedicated AI backend for background removal
 VITE_BG_API_URL=[https://kalai-dev-corex-tools.hf.space](https://kalai-dev-corex-tools.hf.space)
+
+🚀 Getting Started
+Prerequisites
+Node.js installed
+
+Python 3.9+ installed
+
+Frontend Setup
+Clone the repository and install dependencies:
+
+Bash
+git clone [https://github.com/your-username/corex-tools.git](https://github.com/your-username/corex-tools.git)
+cd corex-tools
+npm install
+npm run dev
+Backend Setup (Local Development)
+Navigate to your backend folder and install the required Python libraries:
+
+Bash
+pip install -r requirements.txt
+uvicorn main:app --reload
+👨‍💻 Developer
+Crafted with passion by Kalai Creative Studio.
