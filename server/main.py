@@ -3,6 +3,8 @@ from fastapi.responses import Response
 from fastapi.middleware.cors import CORSMiddleware 
 import qrcode
 import io
+from rembg import remove
+import yt_dlp
 
 
 
@@ -18,7 +20,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
 # 1. QR Code Generator API
 @app.get("/api/qr")
 def generate_qr(url: str):
@@ -30,11 +31,19 @@ def generate_qr(url: str):
 # 2. Background Remover API
 @app.post("/api/bg-remove")
 async def remove_background(file: UploadFile = File(...)):
-    input_image = await file.read()
-    output_image = remove(input_image)
+    input_image = await file.read()   
+    output_image = remove(input_image)   
     return Response(content=output_image, media_type="image/png")
 
+
 # 3. YT Downloader (Basic Structure)
-@app.get("/api/yt-download")
-def download_yt(link: str):
-    return {"message": "Youtube download logic goes here", "url": link}
+@app.get("/api/video-dl")
+def download_yt(url: str):
+    try:
+        ydl_opts = {'format': 'best'}
+        with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+            info = ydl.extract_info(url, download=False)
+            video_url = info.get('url', None)
+        return {"success": True, "download_url": video_url}
+    except Exception as e:
+        return {"success": False, "error": str(e)}
