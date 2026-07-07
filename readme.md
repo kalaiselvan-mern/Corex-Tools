@@ -1,41 +1,38 @@
-# 🚀 CoreX Tools - All-in-One Utility API & UI
+# CoreX Tools 🚀
 
-![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)
-![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
-
-**CoreX Tools** is a powerful, open-source utility web application created by **Kalai Creative Studio**. It bundles essential digital tools into a single, lightning-fast platform. 
-
-Whether you need to generate a quick QR code, remove the background from an image using AI, or download videos from YouTube and Instagram, CoreX Tools has got you covered!
+CoreX Tools is a high-performance, multi-utility web application crafted by Kalai Creative Studio. It provides seamless tools for everyday digital tasks, built with a modern frontend and a scalable, dual-backend microservice architecture.
 
 ## ✨ Features
 
-* 📱 **QR Code Generator:** Instantly convert any URL or text into a high-quality, downloadable QR code.
-* ✂️ **AI Background Remover:** Seamlessly remove backgrounds from any image using Python's `rembg` library.
-* 🎥 **Social Media Downloader:** Fetch direct download links for YouTube videos and Instagram Reels using `yt-dlp`.
-* ⚡ **Lightning Fast UI:** Built with Vite and React for a smooth, single-page application experience.
+* **📱 QR Code Generator:** Instantly convert any URL, text, or link into a high-quality, downloadable QR code.
+* **✂️ AI Background Remover:** A powerful AI-driven tool to remove backgrounds from images flawlessly in seconds.
+* **🎥 Media Downloader:** Extract and download media content quickly and securely.
 
-## 🛠️ Tech Stack
+## 🏗️ Architecture & Tech Stack
 
-**Frontend:**
-* React (Vite)
-* Tailwind CSS v4
-* Hosted on Cloudflare Pages / Vercel
+To ensure maximum uptime and prevent Out-Of-Memory (OOM) crashes, this project implements a smart microservice architecture, splitting lightweight tasks from heavy AI workloads.
 
-**Backend:**
-* Python (FastAPI)
-* Uvicorn
-* `yt-dlp`, `rembg`, `qrcode`
-* Hosted on Render
+**1. Frontend (Client-Side)**
+* **Tech:** React.js (Vite), Tailwind CSS
+* **Hosting:** Vercel
 
----
+**2. Primary Backend (Lightweight Microservice)**
+* **Tech:** FastAPI (Python), `qrcode`, `yt-dlp`
+* **Hosting:** Render
+* **Role:** Handles standard API requests like QR code generation and media fetching.
 
-## 💻 Local Setup & Installation
+**3. AI Backend (Heavy Workload Microservice)**
+* **Tech:** FastAPI, Docker, `rembg`, `onnxruntime`
+* **Hosting:** Hugging Face Spaces (16GB RAM Environment)
+* **Role:** Dedicated exclusively to processing the Machine Learning/AI Background Removal tasks to ensure speed and prevent server overload.
 
-Follow these steps to run CoreX Tools locally on your machine.
+## ⚙️ Environment Variables
 
-### 1. Clone the Repository
-```bash
-git clone [https://github.com/kalaiselvan-mern/Corex-Tools.git](https://github.com/kalaiselvan-mern/Corex-Tools.git)
-cd Corex-Tools
+To run this project locally, create a `.env` file in the root of your frontend directory and add your respective backend URLs:
+
+```env
+# Primary backend for standard tools
+VITE_API_BASE_URL=[https://corex-tools.onrender.com](https://corex-tools.onrender.com)
+
+# Dedicated AI backend for background removal
+VITE_BG_API_URL=[https://kalai-dev-corex-tools.hf.space](https://kalai-dev-corex-tools.hf.space)
