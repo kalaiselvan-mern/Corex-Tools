@@ -65,12 +65,13 @@ export default function CenterTools() {
   };
 
   return (
-   
+
     <>
-    <div className="bg-black border border-gray-800 rounded-2xl shadow-[0_0_30px_rgba(0,255,255,0.05)] w-full max-w-lg overflow-hidden my-10 backdrop-blur-md">
+    
+    <div className="bg-[#050505] border border-gray-800 rounded-2xl shadow-[0_0_30px_rgba(0,255,255,0.05)] w-full max-w-lg overflow-hidden my-10 backdrop-blur-md">
       
       {/* Tabs Header - Styled like portfolio navigation */}
-      <div className="flex p-2 bg-black border-b border-gray-800">
+      <div className="flex p-2 bg-[#0a0a0a] border-b border-gray-800">
         <button 
           onClick={() => changeTab('qr')} 
           className={`flex-1 py-2 mx-1 rounded-lg font-bold text-sm tracking-wider transition-all duration-300 ${activeTab === 'qr' ? 'bg-white text-black shadow-[0_0_15px_rgba(255,255,255,0.4)]' : 'text-gray-400 hover:text-white hover:bg-gray-900'}`}
