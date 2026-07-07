@@ -37,28 +37,9 @@ This project implements a smart microservice architecture, splitting lightweight
 
 To run this project locally, create a `.env` file in the root of your `client` directory:
 
-env
-`# Primary backend for standard tools
+```env
+# Primary backend for standard tools
 VITE_API_BASE_URL=[https://corex-tools.onrender.com](https://corex-tools.onrender.com)
 
 # Dedicated AI backend for background removal
-VITE_BG_API_URL=[https://kalai-dev-corex-tools.hf.space](https://kalai-dev-corex-tools.hf.space)`
-
-
-## 🚀 Getting Started
-
-### Prerequisites
-* **Node.js**: [Download here](https://nodejs.org/)
-* **Python**: [Download here](https://www.python.org/)
-
-### 1. Clone the repository 
-
-`bash
-git clone [https://github.com/your-username/corex-tools.git](https://github.com/kalaiselvan-mern/corex-tools.git)
-cd corex-tools
-
-### 2. Frontend Setup (Client)
-
-cd client
-npm install
-npm run dev
+VITE_BG_API_URL=[https://kalai-dev-corex-tools.hf.space](https://kalai-dev-corex-tools.hf.space)
